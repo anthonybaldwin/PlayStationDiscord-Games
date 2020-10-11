@@ -38,10 +38,10 @@ with io.open('games.json', encoding='utf-8') as games_file:
     if x > 0:
         print('adding %d games...' % len(added_games))
         for game in added_games:
-            with io.open(f'ps4/ps4_main.png', "rb") as image_file:
+            with io.open(f'ps4/{game}.png', "rb") as image_file:
                 try:
                     encoded_string = base64.b64encode(image_file.read())
-                    add_asset("ps4_main", 'data:image/png;base64,%s' % encoded_string.decode("utf-8"))
+                    add_asset(game, 'data:image/png;base64,%s' % encoded_string.decode("utf-8"))
                     print('added %s' % game)
                     x=x-1
                 except HTTPError:
