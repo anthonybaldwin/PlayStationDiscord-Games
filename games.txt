@@ -1,35 +1,31 @@
-# Popular/Common titles
-CUSA07022_00 # Fortnite
-CUSA05042_00 # Destiny 2
-CUSA11100_00 # Black Ops 4
-CUSA05969_00 # WWII
-CUSA04762_00 # Infinite Warfare
-CUSA03522_00 # Modern Warfare Remastered
-CUSA02290_00 # Black Ops 3
-CUSA00803_00 # Advanced Warfare
-CUSA00018_00 # Ghosts
-CUSA08724_00 # Battlefield V
-CUSA08829_00 # Modern Warfare
-CUSA05770_00 # Battlefront II
-CUSA05877_00 # Persona 5
-CUSA02299_00 # Spider-Man
-CUSA07408_00 # God of War
+# Personal
+CUSA16310_00 # NBA 2k20
 CUSA00744_00 # Minecraft
-CUSA01163_00 # Rocket League
-CUSA03041_00 # Red Dead Redemption 2
-CUSA01788_00 # Tom Clancy's Rainbow Six Siege
-# Newer titles
-CUSA07211_00 # Final Fantasy VII Remake
-CUSA14168_00 # Resident Evil 3
-CUSA09249_00 # Modern Warfare 2 Campaign Remastered
-CUSA12031_00 # Kingdom Hearts III
-CUSA15322_00 # Sid Meier's Civilization VI
-# Other titles
-CUSA02320_00 # UNCHARTED The Nathan Drake Collection
-CUSA09311_00 # Assassin's Creed Odyssey
-CUSA05933_00 # KINGDOM HEARTS HD 1.5 +2.5 ReMIX
-CUSA06412_00 # TERA
-CUSA15233_00 # Black Desert
+CUSA17711_00 # Fall Guys: Ultimate Knockout
+CUSA17922_00 # Tony Hawk's Pro Skater 1 + 2
 CUSA00288_00 # FINAL FANTASY XIV Online
-CUSA09032_00 # Yakuza 6
-CUSA00003_00 # Driveclub
+CUSA03041_00 # Red Dead Redemption 2
+CUSA07022_00 # Fortnite
+CUSA02290_00 # Black Ops 3
+CUSA11100_00 # Black Ops 4
+CUSA05042_00 # Destiny 2
+CUSA08829_00 # Modern Warfare
+CUSA12540_00 # Apex: Legends
+CUSA02429_00 # Battlefield 1
+CUSA01842_00 # Overwatch Legendary Edition
+CUSA03018_00 # MLB The Show 16: Royals victory edition
+CUSA17357_00 # MLB The Show 20
+CUSA13265_00 # Madden NFL 20: Chhhieeeeeefffffssssss
+CUSA07211_00 # Final Fantasy VII Remake
+CUSA02299_00 # Marvel's Spiderman
+CUSA07408_00 # God of War
+CUSA02085_00 # Doom
+CUSA03962_00 # Resident Evil VII: Biohazard
+CUSA04493_00 # Prey
+CUSA00527_00 # The Witcher III
+CUSA08692_00 # Dark Souls Remastered
+CUSA03388_00 # Dark Souls III
+CUSA04047_00 # Worms W.M.D.
+CUSA05904_00 # Far Cry 5
+CUSA05218_00 # For Honor
+CUSA07878_00 # Friday the 13th: The Game

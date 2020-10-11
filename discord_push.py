@@ -1,13 +1,13 @@
-import json, os, base64, shutil, urllib.error
+import json, os, base64, shutil, urllib.error, io
 from discord_assets import get_assets, add_asset, delete_asset
 
-with open('games.json') as games_file:  
+with io.open('games.json', encoding='utf-8') as games_file:
     game_data = json.load(games_file)
     if len(game_data) == 0:
         print('no games saved')
         exit(1)
-    
-    # sort all the supported games title ids from the games.json file 
+
+    # sort all the supported games title ids from the games.json file
     supported_games_title_ids = set(n['titleId'].lower() for n in game_data['ps4'])
 
     print('found %d supported games in games.json' % len(supported_games_title_ids))
@@ -34,14 +34,16 @@ with open('games.json') as games_file:
 
     # games that are now supported that don't exist in the discord application
     added_games = [ i for i in supported_games_title_ids if i not in discord_asset_names ]
-    if len(added_games) > 0:
+    x = 1
+    if x > 0:
         print('adding %d games...' % len(added_games))
         for game in added_games:
-            with open(f'ps4/{game}.png', "rb") as image_file:
+            with io.open(f'ps4/ps4_main.png', "rb") as image_file:
                 try:
                     encoded_string = base64.b64encode(image_file.read())
-                    add_asset(game, 'data:image/png;base64,%s' % encoded_string.decode("utf-8"))
+                    add_asset("ps4_main", 'data:image/png;base64,%s' % encoded_string.decode("utf-8"))
                     print('added %s' % game)
+                    x=x-1
                 except HTTPError:
                     print('request failed while trying to add %s' % game)
     else:
