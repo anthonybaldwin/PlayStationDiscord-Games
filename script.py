@@ -1,5 +1,7 @@
-import sys, os, requests, re, json, urllib.request, urllib.error, hashlib, hmac, traceback, logging, shutil
+import sys, os, io, requests, re, json, urllib.request, urllib.error, hashlib, hmac, traceback, logging, shutil
 from pytablewriter import MarkdownTableWriter
+sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding = 'utf-8')
+sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding = 'utf-8')
 
 # key for tdmb link generation (from ps3, ps4)
 tmdb_key = bytearray.fromhex('F5DE66D2680E255B2DF79E74F890EBF349262F618BCAE2A9ACCDEE5156CE8DF2CDF2D48C71173CDC2594465B87405D197CF1AED3B7E9671EEB56CA6753C2E6B0')
@@ -7,13 +9,13 @@ tmdb_key = bytearray.fromhex('F5DE66D2680E255B2DF79E74F890EBF349262F618BCAE2A9AC
 title_ids = []
 
 print('checking games.txt for custom titles...')
-with open('games.txt', 'r') as game_reader:
+with io.open('games.txt', 'r', encoding='utf-8') as game_reader:
     for line in game_reader.readlines():
         line = line.strip()
 
         if line.startswith('#'):
             continue
-        
+
         line = line.split('#', 1)[0].strip()
         title_ids.append(line)
 
@@ -69,7 +71,7 @@ if __name__ == '__main__':
 
         for item in content['included']:
             info = item['attributes']
-            
+
             if 'thumbnail-url-base' not in info:
                 continue
 
@@ -92,7 +94,7 @@ if __name__ == '__main__':
             if not match:
                 print('\tfailed regex check')
                 continue
-            
+
             title_id = match.group(1)
 
             if title_id not in title_ids:
@@ -110,7 +112,7 @@ if __name__ == '__main__':
         if content.status_code != 200:
             print('skipping', title_id)
             continue
-        
+
         try:
             content = content.json()
         except ValueError:
@@ -118,9 +120,9 @@ if __name__ == '__main__':
             title_ids.remove(title_id)
             print('removed')
             continue
-        
+
         game_name = content['names'][0]['name']
-        
+
         print(game_name)
 
         if not content['icons'] or len(content['icons']) == 0:
@@ -133,7 +135,7 @@ if __name__ == '__main__':
             if icon['type'] == '512x512':
                 game_icon = icon['icon']
                 break
-        
+
         if game_icon == None:
             print('\tno 512x512 icon')
             continue
@@ -161,14 +163,14 @@ if __name__ == '__main__':
             continue
 
         urllib.request.urlretrieve(game_icon, icon_file)
-        
+
         print('\tsaved')
-    
+
     if table_writer != None:
-        with open("README.template", "rt") as template:
-            with open('README.md', 'wt', encoding='utf-8') as readme:
+        with io.open("README.template", "rt") as template:
+            with io.open('README.md', 'wt', encoding='utf-8') as readme:
                 for line in template:
                     readme.write(line.replace('!!games!!', table_writer.dumps()))
-    
-    with open('games.json', 'w') as games_file:
+
+    with io.open('games.json', 'w', encoding='utf-8') as games_file:
        json.dump(done, games_file)
